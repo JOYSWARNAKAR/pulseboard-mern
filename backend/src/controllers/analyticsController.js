@@ -1,10 +1,10 @@
-// const Response = require("../models/Response")
+
 import Response from "../models/Response.js"
 import express from "express"
-import { getAnalytics } from "../controllers/analyticsController.js"
-i
 
-exports.getAnalytics = async (req, res) => {
+const router = express.Router()
+
+export const getAnalytics = async (req, res) => {
   const responses = await Response.find({
     pollId: req.params.pollId,
   })

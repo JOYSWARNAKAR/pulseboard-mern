@@ -4,7 +4,7 @@ import Response from "../models/Response.js"
 
 
 
-exports.submitResponse = async (req, res) => {
+export const submitResponse = async (req, res) => {
   try {
     const poll = await Poll.findById(req.params.pollId)
 

@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: poll-mongodb
+
+    ports:
+      - "27017:27017"
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

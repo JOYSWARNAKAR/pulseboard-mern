@@ -6,7 +6,7 @@ import pollRoutes from "./routes/pollRoutes.js"
 import responseRoutes from "./routes/responseRoutes.js"
 import analyticsRoutes from "./routes/analyticsRoutes.js"
 
-import User from "../models/User.js"
+import User from "./models/User.js"
 
 const app = express()
 

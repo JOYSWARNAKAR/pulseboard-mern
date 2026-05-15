@@ -1,12 +1,12 @@
 // const Poll = require("../models/Poll")
 import Poll from "../models/Poll.js"
-exports.createPoll = async (req, res) => {
+export const createPoll = async (req, res) => {
     try {
     const poll = await Poll.create({
         ...req.body,
         creator: req.user.id,
     })
-    
+
 
     res.status(201).json(poll)
   } catch (error) {
@@ -14,7 +14,7 @@ exports.createPoll = async (req, res) => {
   }
 }
 
-exports.getPoll = async (req, res) => {
+export const getPoll = async (req, res) => {
   try {
     const poll = await Poll.findById(req.params.id)
 
@@ -28,7 +28,7 @@ exports.getPoll = async (req, res) => {
   }
 }
 
-exports.publishResults = async (req, res) => {
+export const publishResults = async (req, res) => {
   const poll = await Poll.findById(req.params.id)
 
   poll.published = true
