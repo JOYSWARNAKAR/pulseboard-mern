@@ -7,6 +7,8 @@ import { Server } from "socket.io"
 import app from "./app.js"
 import connectDB from "./config/db.js"
 
+import socketHandler from "./socket/socket.js"
+
 
 const PORT = process.env.PORT || 5000;
 connectDB()
@@ -25,15 +27,18 @@ app.use((req, res, next) => {
   next()
 })
 
-app.get("/", (req, res) => {
-  res.send("API is running...")
-})
-io.on("connection", (socket) => {
-  console.log("New client connected")
-  socket.on("disconnect", () => {
-    console.log("Client disconnected")
-  })
-})
+// app.get("/", (req, res) => {
+//   res.send("API is running...")
+// })
+
+socketHandler(io)
+
+// io.on("connection", (socket) => {
+//   console.log("New client connected")
+//   socket.on("disconnect", () => {
+//     console.log("Client disconnected")
+//   })
+// })
 
 
 server.listen(PORT, () => {
