@@ -31,46 +31,63 @@ function Register() {
     }
   }
     return (
-    <div className="min-h-screen flex justify-center items-center">
+    <div className="min-h-screen flex justify-center items-center p-4 bg-gradient-to-br from-surface to-violet-50">
       <form
         onSubmit={handleSubmit}
-        className="bg-slate-800 p-8 rounded-xl w-[400px]"
+        className="bg-card p-8 rounded-2xl shadow-xl shadow-slate-200/50 w-full max-w-md border border-border"
       >
-        <h1 className="text-3xl font-bold mb-6 text-center">
-          Register
-        </h1>
+        <div className="text-center mb-8">
+          <h1 className="text-4xl mb-2 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+            Create Account
+          </h1>
+          <p className="text-subtle">Join PulseBoard today</p>
+        </div>
 
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          className="w-full p-3 rounded mb-4 text-black"
-          onChange={handleChange}
-        />
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-subtle mb-1 ml-1">Full Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="John Doe"
+              className="w-full p-4 rounded-xl bg-slate-50 focus:bg-white"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          className="w-full p-3 rounded mb-4 text-black"
-          onChange={handleChange}
-        />
+          <div>
+            <label className="block text-sm font-medium text-subtle mb-1 ml-1">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="name@company.com"
+              className="w-full p-4 rounded-xl bg-slate-50 focus:bg-white"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="w-full p-3 rounded mb-4 text-black"
-          onChange={handleChange}
-        />
+          <div>
+            <label className="block text-sm font-medium text-subtle mb-1 ml-1">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              className="w-full p-4 rounded-xl bg-slate-50 focus:bg-white"
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
 
-        <button className="bg-green-600 w-full p-3 rounded">
+        <button className="bg-secondary hover:bg-violet-700 text-white w-full p-4 rounded-xl mt-8 font-semibold shadow-lg shadow-secondary/20">
           Register
         </button>
 
-        <p className="mt-4 text-center">
-          Already have account?
-          <Link to="/login" className="text-blue-400 ml-2">
+        <p className="mt-6 text-center text-subtle">
+          Already have an account?
+          <Link to="/login" className="text-secondary font-semibold ml-2 hover:underline">
             Login
           </Link>
         </p>
