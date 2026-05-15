@@ -1,3 +1,19 @@
+let io
+
+export const initSocket = (server) => {
+  io = new Server(server, {
+    cors: {
+      origin: "http://localhost:5173",
+    },
+  })
+
+  io.on("connection", (socket) => {
+    console.log("User connected")
+  })
+}
+
+export const getIO = () => io
+
 const connectedUsers = new Map()
 
 const socketHandler = (io) => {
